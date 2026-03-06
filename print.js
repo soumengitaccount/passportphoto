@@ -24,7 +24,7 @@ async function createA4Print(img, photo_count) {
     });
     const FileName = 'passport_A4_print_'+Date.now()+'.pdf' ;
 
-    doc.pipe(fs.createWriteStream('./pdf/'+FileName));
+    doc.pipe(fs.createWriteStream('pdf/'+FileName));
 
     const imageBuffer = await sharp('uploads/'+img)
         .resize(Math.round(PHOTO_WIDTH), Math.round(PHOTO_HEIGHT))
