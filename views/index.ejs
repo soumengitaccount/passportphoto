@@ -151,7 +151,7 @@ $('#fileInput').change(function(event){
             $('#loader').addClass('d-none');
             $("#img_div").removeClass('d-none');
             let image  ='<img id="passwortportimage" class="img-thumbnail" height="50px" width="150px"  src="https://passportphoto-ohql.onrender.com/uploads/'+data+'" alt="Description of image">';
-            $('#passportimage').append(image);
+            $('#passportimage').html(image);
             $('#image_name').val(data);
         },
         error:function(jqXHR, textStatus, errorThrown){
