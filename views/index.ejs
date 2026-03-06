@@ -150,7 +150,7 @@ $('#fileInput').change(function(event){
             $( "#original" ).prop( "checked", true );
             $('#loader').addClass('d-none');
             $("#img_div").removeClass('d-none');
-            let image  ='<img id="passwortportimage" class="img-thumbnail" height="50px" width="150px"  src="http://localhost:3000/uploads/'+data+'" alt="Description of image">';
+            let image  ='<img id="passwortportimage" class="img-thumbnail" height="50px" width="150px"  src="https://passportphoto-ohql.onrender.com/uploads/'+data+'" alt="Description of image">';
             $('#passportimage').append(image);
             $('#image_name').val(data);
         },
@@ -172,7 +172,7 @@ $('#generate').click(function(){
         data:{'image':image,'no_ofCopy':no_ofCopy},
         success:function(data){
             // alert(data);
-            let doc ='<embed src="http://localhost:3000/pdf/'+data+'" type="application/pdf" width="100%" height="600px" title="Embedded PDF Viewer">';
+            let doc ='<embed src="https://passportphoto-ohql.onrender.com/pdf/'+data+'" type="application/pdf" width="100%" height="600px" title="Embedded PDF Viewer">';
             $('#modal_body').html(doc);
             $('#staticBackdrop').modal('show');
             
