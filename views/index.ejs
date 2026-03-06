@@ -33,9 +33,9 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 justify-content-center">
                 <div data-v-58d64529="" class="row no-gutters align-center justify-center" style="margin-top: 60px;">
-                    <div data-v-58d64529="" class="upload-img v-card v-sheet theme--light elevation-3 rounded-xl" style="height: 180px; width: 440px; padding: 60px;">
+                    <div data-v-58d64529="" class="upload-img v-card v-sheet theme--light elevation-3 rounded-xl" style="height: 180px; width: 440px; padding: 0px;">
                     <button id ="customButton" data-v-58d64529="" type="button" class="drag-drop-btn v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default" style="height: 60px; width: 320px; background-color: rgb(232, 33, 85); border-color: rgb(232, 33, 85); text-transform: none; font-size: 1.5rem; border-radius: 1.15rem; font-weight: bold;"><span class="v-btn__content"><svg data-v-58d64529="" viewBox="0 0 24 24" style="width: 30px; height: 30px; margin-right: 12px;"><path data-v-58d64529="" fill="currentColor" d="M2 12H4V17H20V12H22V17C22 18.11 21.11 19 20 19H4C2.9 19 2 18.11 2 17V12M12 2L6.46 7.46L7.88 8.88L11 5.75V15H13V5.75L16.13 8.88L17.55 7.45L12 2Z"></path></svg>
                     Upload Image
                     </span></button> 
@@ -150,7 +150,7 @@ $('#fileInput').change(function(event){
             $( "#original" ).prop( "checked", true );
             $('#loader').addClass('d-none');
             $("#img_div").removeClass('d-none');
-            let image  ='<img id="passwortportimage" class="img-thumbnail" height="50px" width="150px"  src="https://passportphoto-ohql.onrender.com/uploads/'+data+'" alt="Description of image">';
+            let image  ='<img id="passwortportimage" class="img-thumbnail" height="50px" width="150px"  src="https://passportphoto-ohql.onrender.com/uploads/'+data+'" alt="Image not found try again">';
             $('#passportimage').html(image);
             $('#image_name').val(data);
         },
