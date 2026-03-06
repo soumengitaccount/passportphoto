@@ -26,7 +26,7 @@ async function createA4Print(img, photo_count) {
 
     doc.pipe(fs.createWriteStream('./pdf/'+FileName));
 
-    const imageBuffer = await sharp('./uploads/'+img)
+    const imageBuffer = await sharp('uploads/'+img)
         .resize(Math.round(PHOTO_WIDTH), Math.round(PHOTO_HEIGHT))
         .toBuffer();
 
