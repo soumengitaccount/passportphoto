@@ -2,6 +2,7 @@ const express= require("express");
 const multer = require('multer');
 const path = require('path');
 const passportPhoto = require('./cropimage.js');
+const imageprocess = require('../processimage.js');
 const pdfkit = require('../print.js');
 
 
@@ -15,15 +16,15 @@ const storage = multer.diskStorage({
       cb(null, filename);
   }
 });
-
 // Initialize Multer upload middleware
 const upload = multer({
   storage: storage,
-  limits:{fileSize: 100000000}, // Limit file size to 1MB (optional)
+  limits:{fileSize: 100000000}, // Limit file size to 100MB (optional)
   fileFilter: function(req, file, cb){ // Filter files (optional)
       checkFileType(file, cb);
   }
-}).single('image'); // 'myImage' is the field name from the frontend form
+}).single('image'); // 'image' is the field name from the frontend form
+
 // Check File Type function (optional)
 function checkFileType(file, cb){
   // Allowed extensions
@@ -43,7 +44,10 @@ router.get("/", (req, res) => {
     // res.send("Hello World!");
 
     // res.render('index', data);
-    res.render('index');
+    res.render('index2');
+    // res.render('index');
+    // res.render('angular');
+    // res.sendFile(path.join(__dirname, 'views', 'index.html'));
   });
 
   router.post("/upload",async (req,res)=>{
@@ -65,6 +69,9 @@ router.get("/", (req, res) => {
   });
   
   });
+  
+  
+  
 
   router.post("/generate",async (req,res)=>{
     console.log(req.body);
@@ -77,6 +84,16 @@ router.get("/", (req, res) => {
     });
 
   });
+  router.post("/change-background",async (req,res)=>{
+    console.log(req.body);
 
+    let image = req.body.image;
+    let color = req.body.color;
+    imageprocess.processImage(image,color).then(filename=>{
+      res.send(filename);
+
+    });
+
+  });
 
 module.exports= router;

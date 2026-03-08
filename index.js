@@ -12,8 +12,10 @@ app.use(express.urlencoded({ extended: true })); // For parsing application/x-ww
 
 app.use(Router);
 app.set('view engine', 'ejs');
+// app.use(express.static(path.join(__dirname, 'views')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/pdf', express.static(path.join(__dirname, 'pdf')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`);
