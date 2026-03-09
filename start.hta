@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Run BAT File</title>
+
+<hta:application 
+  id="app"
+  border="thin"
+  caption="yes"
+  showintaskbar="yes"
+  singleinstance="yes"
+  windowstate="normal"
+/>
+
+<script language="javascript">
+
+function runBat(){
+
+    var shell = new ActiveXObject("WScript.Shell");
+
+    // path of bat file
+    shell.Run("start.bat",1,true);
+
+}
+
+</script>
+</head>
+
+<body>
+
+<h2>Run Batch File</h2>
+
+<button onclick="runBat()">Run BAT</button>
+
+</body>
+</html>
